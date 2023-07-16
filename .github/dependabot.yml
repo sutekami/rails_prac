@@ -1,0 +1,16 @@
+# ref: https://docs.github.com/ja/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+      time: "08:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    # Gemfile.lockのみを更新するPRを作成する
+    # パッケージマニフェストの変更が必要になる新しいバージョンは無視する
+    versioning-strategy: "lockfile-only"

@@ -1,0 +1,43 @@
+inherit_from: .rubocop_todo.yml
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+# ------------------ FactoryBot ----------------- #
+# FactoryBotでclass指定は文字列にする
+# 文字列ではなくclassを渡すとfactoryファイルがloadされる際に以下の影響がある
+# 1. classで指定したmodelがloadされるので、その分overheadが発生してテストが遅くなる
+# 2. simplecovなどの外部ライブラリでcaptureが失敗する可能性がある
+# See: https://github.com/rubocop/rubocop-rspec/pull/839
+FactoryBot/FactoryClassName:
+  Enabled: true
+
+# -------------------- Style -------------------- #
+Style/Documentation:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+# -------------------- RSpec -------------------- #
+# 日本語でcontextを書くことを許可
+RSpec/ContextWording:
+  Enabled: false
+
+# subjectに名前を付与しても可読性は向上しないので許可
+RSpec/NamedSubject:
+  Enabled: false
+
+# subjectの位置は好みなので許可　
+RSpec/LeadingSubject:
+  Enabled: false
