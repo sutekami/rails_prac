@@ -15,6 +15,10 @@ Railsサーバサイド開発 1dayインターンのリポジトリです.
 ## 環境構築 🏗
 まずはリポジトリをcloneします.
 
+※ Windows ユーザーで、 WSL2 をバックエンドとして使い Docker を起動させる人は、WSL2 配下のディレクトリ (Ubuntu を起動したときの `/home/<ユーザー名>/` 以下など) に clone すること
+
+(`/mnt/c/` 以下など Windows 配下のディレクトリに clone してしまうと、WSL2-Windows 間のファイルアクセスの遅さがボトルネックとなり Rails のホットリロードが効かなくなります)
+
 ```zsh
 $ git clone git@github.com:eightcard/rails-1day-intern-2023.git
 ```
